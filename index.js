@@ -80,7 +80,7 @@ function addEmployee() {
                     addHtml(newMember)
                         .then(function () {
                             if (moreMembers === "yes") {
-                                addMember();
+                                addEmployee();
                             } else {
                                 finishHtml();
                             }
