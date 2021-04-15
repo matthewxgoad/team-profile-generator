@@ -10,7 +10,7 @@
 * [Questions?](#Questions?)
 
 ![screenshot of generated html](./team-screenshot.png)
-[link to example output](./output/example.html)
+[link to example output](./index.html)
 
 ## Description
 
