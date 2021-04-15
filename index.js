@@ -108,7 +108,7 @@ function startHtml() {
             </div>
         </div>
         <div class="container">
-            <div class="row">`;
+            <div class="flex-row row justify-content-center">`;
     fs.writeFile("./output/team.html", html, function (err) {
         if (err) {
             console.log(err);
@@ -125,47 +125,53 @@ function addHtml(employee) {
         let data = "";
         if (role === "Engineer") {
             const gitHub = employee.getGithub();
-            data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 18rem">
-                <div class="card-body">
-                    <h5 class="card-title">${name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Manager</h6> 
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: ${id}</li>
-                        <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
-                        <li class="list-group-item">GitHub: <a href="https://github.com/${gitHub}">${gitHub}</a></li>
-                    </ul>
-                </div>    
+            data = `
+            <div class="col-3 m-3">
+                <div class="card mx-auto mb-3" style="width: 18rem">
+                    <div class="card-body">
+                        <h5 class="card-title">${name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Engineer</h6> 
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${id}</li>
+                            <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
+                            <li class="list-group-item">GitHub: <a href="https://github.com/${gitHub}">${gitHub}</a></li>
+                        </ul>
+                    </div>    
+                </div>
             </div>`
             ;
         } else if (role === "Intern") {
             const school = employee.getSchool();
-            data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 18rem">
-                <div class="card-body">
-                    <h5 class="card-title">${name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Manager</h6> 
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: ${id}</li>
-                        <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
-                        <li class="list-group-item">School: ${school}</li>
-                    </ul>
-                </div>    
+            data = `
+            <div class="col-3 m-3">
+                <div class="card mx-auto mb-3" style="width: 18rem">
+                    <div class="card-body">
+                        <h5 class="card-title">${name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Intern</h6> 
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${id}</li>
+                            <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
+                            <li class="list-group-item">School: ${school}</li>
+                        </ul>
+                    </div>    
+                </div>
             </div>`
             ;
         } else {
             const officePhone = employee.getOfficeNumber();
-            data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 18rem">
-                <div class="card-body">
-                    <h5 class="card-title">${name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Manager</h6> 
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: ${id}</li>
-                        <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
-                        <li class="list-group-item">Office Phone: ${officePhone}</li>
-                    </ul>
-                </div>    
+            data = `
+            <div class="col-3 m-3">
+                <div class="card mx-auto mb-3" style="width: 18rem">
+                    <div class="card-body">
+                        <h5 class="card-title">${name}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Manager</h6> 
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ID: ${id}</li>
+                            <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
+                            <li class="list-group-item">Office Phone: ${officePhone}</li>
+                        </ul>
+                    </div>    
+                </div>
             </div>`
         }
         fs.appendFile("./output/team.html", data, function (err) {
@@ -178,7 +184,8 @@ function addHtml(employee) {
 }
 
 function finishHtml() {
-    const html = `</div>
+    const html = `
+        </div>
     </div>
 </body>
 </html>`;
